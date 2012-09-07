@@ -37,6 +37,8 @@ window.onload = function () {
     //define the width of the window so the elements stretch the whole width of the screen
     ctrl.style.width = document.body.clientWidth - 20 + "px";
     writ.style.width = document.body.clientWidth - 20 + "px";
+    //pads the top message down to right above the input box
+    writ.style.paddingTop = document.body.clientHeight - 100 + "px";
     userMsg.addEventListener("keydown", userInput, false);
     userMsg.addEventListener("input", userTyping, false);
     window.addEventListener("orientationchange", changeOrientation);
@@ -45,8 +47,8 @@ window.onload = function () {
 /* This function runs second when the device is ready.
  */
 function onDeviceReady() {
-  alert(device.name);
-    //deviceName = 
+    //deviceName = device.name;
+    socket.emit('clientNick', {data: device.name});
 }
 
 /* When a client first connects, we send the current URL
@@ -66,8 +68,13 @@ socket.on("connect", function () {
  * keep the conversation focused on this last chat message.
  */
 socket.on("chatMessage", function (data) {
+    var infos = document.createElement("span");
+    var msgs = document.createElement("span");
+    infos.innerHTML = data.data.timeStamp + " " + data.data.nick;
+    msgs.innerHTML = data.data.msg;
     var pre = document.createElement("p");
-    pre.innerHTML = data.data.timeStamp + " " + data.data.nick + ": " + data.data.msg;
+    pre.appendChild(infos);
+    pre.appendChild(msgs);
     var red = document.createElement("div");
     red.className = "message";
     red.appendChild(pre);
@@ -85,9 +92,9 @@ socket.on("chatMessage", function (data) {
  */
 socket.on("typingMessage", function (data) {
     var pre = document.createElement("p");
-    pre.innerHTML = data.nick + " is currently typing.";
+    pre.innerHTML = data.nick + " is currently typing";
     var red = document.createElement("div");
-    red.className = "message";
+    red.className = "alert red";
     red.id = data.nick;
     red.appendChild(pre);
     output.appendChild(red);
@@ -113,7 +120,7 @@ socket.on("clientJoin", function (data) {
     var pre = document.createElement("p");
     pre.innerHTML = data.nick + " has joined the room";
     var red = document.createElement("div");
-    red.className = "message";
+    red.className = "alert green";
     red.appendChild(pre);
     output.appendChild(red);
 
@@ -128,7 +135,7 @@ socket.on("clientLeave", function (data) {
     var pre = document.createElement("p");
     pre.innerHTML = data.nick + " has left the room";
     var red = document.createElement("div");
-    red.className = "message";
+    red.className = "alert orange";
     red.appendChild(pre);
     output.appendChild(red);
 
@@ -143,7 +150,7 @@ socket.on("otherNickChange", function (data) {
     var pre = document.createElement("p");
     pre.innerHTML = data.old + " is now known as " + data.changed;
     var red = document.createElement("div");
-    red.className = "message";
+    red.className = "alert blue";
     red.appendChild(pre);
     output.appendChild(red);
 
@@ -193,8 +200,9 @@ function userTyping(event) {
  * are still right against the bottom of the page.
  */
 function changeOrientation(event) {
-    ctrl.style.width = document.body.clientWidth - 20 + "px";
     writ.style.width = document.body.clientWidth - 20 + "px";
+    writ.style.paddingTop = document.body.clientHeight - 100 + "px";
+    ctrl.style.width = document.body.clientWidth - 20 + "px";
     //a fix to keep the page scrolled to the bottom
     window.scrollTo(0, document.getElementById("write").clientHeight + 5000);
 }

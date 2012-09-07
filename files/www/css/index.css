@@ -390,18 +390,17 @@ html, body {
 
 #hold {
 	position: fixed;
+	bottom: 0px;
 }
 
 #write {
-	padding: 60px 0px 0px 0px;
+	padding: 0px 0px 60px 0px;
 	margin: 0px;
-	width: 200px;
 	float: left;
 }
 
 #controls {
 	background: url(../img/fg.png);
-	width: 200px;
 	padding: 10px;
 	box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
 }
@@ -419,10 +418,49 @@ html, body {
 	box-shadow: inset 0 0 8px #bbb;
 }
 
+.alert {
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+	clear: both;
+	font-size: 12px;
+	box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+}
+
+.alert p {
+	margin: 10px;
+}
+
+.blue {
+	color: #fff;
+	background-color: #3B5998;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.green {
+	color: #fff;
+	background-color: #3E7B3E;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.red {
+	color: #333;
+	background-color: #FFF37B;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.orange {
+	color: #fff;
+	background-color: #A62000;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
 .message {
 	text-align: left;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-top: 10px;
 	margin-left: 10px;
 	float: left;
 	clear: both;
@@ -432,9 +470,20 @@ html, body {
 }
 
 .message p {
-	/*line-height: 40px;*/
-	word-wrap: break-word;
 	margin: 10px;
+}
+
+.message span {
+	display: block;
+}
+
+.message span:first-child {
+	font-size: 10px;
+}
+
+.message span:last-child {
+	word-wrap: break-word;
+	font-style: italic;
 }
 
 .message:nth-child(2n) {
