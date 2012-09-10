@@ -26,7 +26,7 @@ var writ;
 var deviceName = "";
 var currentlyTyping = false;    //flag to control when a "currently typing" message is emitted
 
-/* This function runs first after the DOM is ready to go.
+/* This function runs after the DOM is ready to go.
  */
 window.onload = function () {
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -37,14 +37,16 @@ window.onload = function () {
     //define the width of the window so the elements stretch the whole width of the screen
     ctrl.style.width = document.body.clientWidth - 20 + "px";
     writ.style.width = document.body.clientWidth - 20 + "px";
+    
     //pads the top message down to right above the input box
     writ.style.paddingTop = document.body.clientHeight - 100 + "px";
+    
     userMsg.addEventListener("keydown", userInput, false);
     userMsg.addEventListener("input", userTyping, false);
     window.addEventListener("orientationchange", changeOrientation);
 };
 
-/* This function runs second when the device is ready.
+/* This function runs when the device is ready.
  */
 function onDeviceReady() {
     //deviceName = device.name;
@@ -56,8 +58,7 @@ function onDeviceReady() {
  * We also update the status icon to show that we are connected.
  * All code up to and including the socket.emit was moved here from
  * window.onload to accomodate for timing issues where socket functions
- * were being called before the DOM had fully loaded. This function is
- * called third.
+ * were being called before the DOM had fully loaded.
  */
 socket.on("connect", function () {
     socket.emit("clientURL", {data: document.URL});
@@ -94,7 +95,7 @@ socket.on("typingMessage", function (data) {
     var pre = document.createElement("p");
     pre.innerHTML = data.nick + " is currently typing";
     var red = document.createElement("div");
-    red.className = "alert red";
+    red.className = "alert yellow";
     red.id = data.nick;
     red.appendChild(pre);
     output.appendChild(red);

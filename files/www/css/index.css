@@ -381,52 +381,54 @@ End of Normalize.css
 */
 
 html, body {
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	min-height: 100%;
-	background: url(../img/bg.jpg);
+  background: url(../img/bg.jpg);
+  height: 100%;
+  margin: 0px;
+  min-height: 100%;
+  padding: 0px;
 }
 
 #hold {
-	position: fixed;
-	bottom: 0px;
+  bottom: 0px;
+  position: fixed;
 }
 
 #write {
-	padding: 0px 0px 60px 0px;
-	margin: 0px;
-	float: left;
+  float: left;
+  margin: 0px;
+  padding: 0px 0px 60px 0px;
 }
 
 #controls {
-	background: url(../img/fg.png);
-	padding: 10px;
-	box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  background: url(../img/fg.png);
+  box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  padding: 10px;
 }
 
 #userMsg {
-	width: 100%;
-	-moz-box-sizing:    border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing:        border-box;
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	border: 1px solid #bbb;
-	box-shadow: inset 0 0 8px #bbb;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+  background-image: -moz-linear-gradient(top, #fff, #ddd);
+  background-image: -ms-linear-gradient(top, #fff, #ddd);
+  background-image: -o-linear-gradient(top, #fff, #ddd);
+  background-image: -webkit-linear-gradient(top, #fff, #ddd);
+  border: 1px solid #bbb;
+  box-shadow: inset 0 0 8px #bbb;
+  width: 100%;
 }
 
 .alert {
-	text-align: center;
-	width: 100%;
-	margin-top: 10px;
-	margin-left: 10px;
-	float: left;
-	clear: both;
-	font-size: 12px;
-	box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  clear: both;
+  color: #fff;
+  float: left;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  width: 100%;
 }
 
 .alert p {
@@ -434,39 +436,32 @@ html, body {
 }
 
 .blue {
-	color: #fff;
-	background-color: #3B5998;
-	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  background-color: #3B5998;
 }
 
 .green {
-	color: #fff;
-	background-color: #3E7B3E;
-	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  background-color: #3E7B3E;
 }
 
-.red {
-	color: #333;
-	background-color: #FFF37B;
-	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+.yellow {
+  background-color: #FFF37B;
+  color: #333;
 }
 
 .orange {
-	color: #fff;
-	background-color: #A62000;
-	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  background-color: #A62000;
 }
 
 .message {
-	text-align: left;
-	width: 100%;
-	margin-top: 10px;
-	margin-left: 10px;
-	float: left;
-	clear: both;
-	color: #333;
-	background-color: #eee;
-	box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  background-color: #eee;
+  box-shadow: 0 0 6px -2px black, 0 0 45px -20px black;
+  clear: both;
+  color: #333;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: left;
+  width: 100%;
 }
 
 .message p {
@@ -482,11 +477,11 @@ html, body {
 }
 
 .message span:last-child {
-	word-wrap: break-word;
-	font-style: italic;
+  font-style: italic;
+  word-wrap: break-word;
 }
 
 .message:nth-child(2n) {
-	color: #222;
-	background-color: #ddd;
+  background-color: #ddd;
+  color: #222;
 }
